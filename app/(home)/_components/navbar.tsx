@@ -1,0 +1,92 @@
+"use client"
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Waves } from "lucide-react";
+import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+
+export const Navbar = () => {
+    const router = useRouter();
+
+    // const handleScrollDown = (targetId: string) => {
+    //     const element = document.getElementById(targetId);
+    //     if (element) {
+    //         // element.scrollIntoView({behavior: 'smooth'});
+    //         const top = element.getBoundingClientRect().top + window.scrollY;
+    //         window.scrollTo({ top, behavior: 'smooth' });
+    //     } else {
+    //         // window.location.href = '/#' + targetId;
+    //         router.push('/#' + targetId)
+    //     }
+    // };
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    const handleScroll = (hash: string) => {
+        const element = document.getElementById(hash);
+        if (element) {
+            const top = element.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+    };
+
+    useEffect(() => {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            handleScroll(hash);
+        }
+    }, [pathname, searchParams]);
+
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+        e.preventDefault();
+        window.history.pushState(null, '', `/#${targetId}`);
+        handleScroll(targetId);
+    };
+
+    return(
+        <div className="fixed w-full h-[5rem] px-4 py-auto border-b-4 shadow-sm bg-neutral-50 items-center">
+            <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between pt-4">
+                <Link href='/'>
+                    <div className="hover:opacity-75 transition items-center gap-x-2 hidden md:flex">
+                        <Waves/>
+                        <p
+                            className={cn(
+                                'text-lg text-neutral-700 pb-1',
+                            )}
+                        >
+                            Portfolio
+                        </p>
+                    </div>
+                </Link>
+                <div className="space-x-4 md:block md:w-auto items-center justiy-between w-full">
+                    <Button size='sm' variant='outline'> 
+                        <a href="/" onClick={e => handleClick(e, 'home')}>
+                        {/* onClick={() => handleScrollDown('home')} */}
+                            Home
+                        </a>
+                    </Button>
+                    <Button size='sm' variant='outline' >
+                        {/* onClick={() => handleScrollDown('aboutme')} */}
+                        <a href="/aboutme" onClick={e => handleClick(e, 'aboutme')}>
+                            About me
+                        </a>
+                    </Button>
+                    <Button size='sm' variant='outline' >
+                        {/* onClick={() => handleScrollDown('works')} */}
+                        <a href="/works" onClick={e => handleClick(e, 'works')}>
+                            Works
+                        </a>
+                    </Button>
+                    <Button size='sm' variant='outline' >
+                        {/* onClick={() => handleScrollDown('contact')} */}
+                        <a href="/contact" onClick={e => handleClick(e, 'contact')}>
+                            contact
+                        </a>
+                    </Button>
+
+                </div>
+            </div>
+        </div>
+    )
+}
