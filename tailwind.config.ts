@@ -18,6 +18,21 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        'xs': '480px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+      },
+      height: {
+        'calc-screen': 'calc(100vh - 4rem - 4rem)', // NavbarとFooterの高さを除いた高さ
+      },
+      spacing: {
+        'navbar': '4rem', // Navbarの高さ
+        'footer': '4rem', // Footerの高さ
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

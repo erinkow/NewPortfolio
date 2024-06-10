@@ -8,11 +8,11 @@ import WorksPage from "./works/page";
 const App = () => {
     return(
         <>
-            <div className="fixed top-0 w-full flex justify-around bg-transparent text-white p-4">
+            {/* <div className="fixed top-0 w-full flex justify-around bg-transparent text-white p-4">
                 <ScrollDown targetId="aboutme"/>
                 <ScrollDown targetId="works"/>
                 <ScrollDown targetId="contact"/>
-            </div>
+            </div> */}
             <div>
                 <Home/>
                 <AboutMePage/>

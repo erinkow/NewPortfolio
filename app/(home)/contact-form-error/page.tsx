@@ -2,7 +2,7 @@ import { ContactError } from "@/components/contactError/contact-error";
 
 const ContactFormError = () => {
     return(
-        <div className="w-full h-[1200px]">
+        <div className="max-w-full">
             <ContactError/>
         </div>
     );

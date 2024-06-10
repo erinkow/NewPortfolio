@@ -6,7 +6,13 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-export const Navbar = () => {
+interface NavbarProps {
+    className?: string;
+}
+
+export const Navbar = ({
+    className, 
+}: NavbarProps) => {
     const router = useRouter();
 
     // const handleScrollDown = (targetId: string) => {
@@ -28,15 +34,36 @@ export const Navbar = () => {
         if (element) {
             const top = element.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({ top, behavior: 'smooth' });
+            console.log(`Scrolled to ${hash}`);
+        } else {
+            console.log(`Element with id ${hash} not found`)
+            router.push(`/#${hash}`)
         }
     };
 
+    // // ハッシュ変更イベントのリスナーを設定
+    // const onHashChange = () => {
+    //     const hash = window.location.hash.substring(1);
+    //     if (hash) {
+    //         handleScroll(hash);
+    //     }
+    // };
+
     useEffect(() => {
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-            handleScroll(hash);
+        const handleHashChange = () => { //追加
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                handleScroll(hash);
+            }
         }
-    }, [pathname, searchParams]);
+        handleHashChange();
+
+        window.addEventListener('hashchange', handleHashChange);
+
+        return () => window.removeEventListener('hashchange', handleHashChange);
+
+    }, []);
+    // }, [pathname, searchParams]);
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
         e.preventDefault();
@@ -45,7 +72,7 @@ export const Navbar = () => {
     };
 
     return(
-        <div className="fixed w-full h-[5rem] px-4 py-auto border-b-4 shadow-sm bg-neutral-50 items-center">
+        <div className={`fixed w-full h-navbar px-4 py-auto border-b-4 shadow-sm bg-neutral-50 items-center ${className}`}>
             <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between pt-4">
                 <Link href='/'>
                     <div className="hover:opacity-75 transition items-center gap-x-2 hidden md:flex">
@@ -59,26 +86,26 @@ export const Navbar = () => {
                         </p>
                     </div>
                 </Link>
-                <div className="space-x-4 md:block md:w-auto items-center justiy-between w-full">
-                    <Button size='sm' variant='outline'> 
-                        <a href="/" onClick={e => handleClick(e, 'home')}>
+                <div className="flex flex-wrap justify-center space-x-4 md:block md:w-auto items-center justiy-between w-full">
+                    <Button size='sm' variant='outline' className="text-xs sm:text-sm"> 
+                        <a href="/#home" onClick={e => handleClick(e, 'home')}>
                         {/* onClick={() => handleScrollDown('home')} */}
                             Home
                         </a>
                     </Button>
-                    <Button size='sm' variant='outline' >
+                    <Button size='sm' variant='outline' className="text-xs sm:text-sm">
                         {/* onClick={() => handleScrollDown('aboutme')} */}
-                        <a href="/aboutme" onClick={e => handleClick(e, 'aboutme')}>
+                        <a href="/#aboutme" onClick={e => handleClick(e, 'aboutme')}>
                             About me
                         </a>
                     </Button>
-                    <Button size='sm' variant='outline' >
+                    <Button size='sm' variant='outline' className="text-xs sm:text-sm">
                         {/* onClick={() => handleScrollDown('works')} */}
                         <a href="/works" onClick={e => handleClick(e, 'works')}>
                             Works
                         </a>
                     </Button>
-                    <Button size='sm' variant='outline' >
+                    <Button size='sm' variant='outline' className="text-xs sm:text-sm">
                         {/* onClick={() => handleScrollDown('contact')} */}
                         <a href="/contact" onClick={e => handleClick(e, 'contact')}>
                             contact
