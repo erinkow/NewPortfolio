@@ -57,7 +57,6 @@ export const Navbar = ({
             }
         }
         handleHashChange();
-
         window.addEventListener('hashchange', handleHashChange);
 
         return () => window.removeEventListener('hashchange', handleHashChange);
@@ -72,7 +71,7 @@ export const Navbar = ({
     };
 
     return(
-        <div className={`fixed w-full h-navbar px-4 py-auto border-b-4 shadow-sm bg-neutral-50 items-center ${className}`}>
+        <div className={`fixed w-full h-navbar px-4 py-auto border-b-4 shadow-sm bg-neutral-50 opacity-80 items-center z-10 ${className}`}>
             <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between pt-4">
                 <Link href='/'>
                     <div className="hover:opacity-75 transition items-center gap-x-2 hidden md:flex">
@@ -101,13 +100,13 @@ export const Navbar = ({
                     </Button>
                     <Button size='sm' variant='outline' className="text-xs sm:text-sm">
                         {/* onClick={() => handleScrollDown('works')} */}
-                        <a href="/works" onClick={e => handleClick(e, 'works')}>
+                        <a href="/#works" onClick={e => handleClick(e, 'works')}>
                             Works
                         </a>
                     </Button>
                     <Button size='sm' variant='outline' className="text-xs sm:text-sm">
                         {/* onClick={() => handleScrollDown('contact')} */}
-                        <a href="/contact" onClick={e => handleClick(e, 'contact')}>
+                        <a href="/#contact" onClick={e => handleClick(e, 'contact')}>
                             contact
                         </a>
                     </Button>

@@ -10,9 +10,9 @@ const ContactPage = () => {
   return (
     <div
       id='contact'
-      className='bg-red-500 h-screen flex justify-center items-center text-white'
+      className='h-screen flex justify-center items-center text-white'
     >
-      <div className='flex items-center space-x-4 mb-30'>
+      <div className='flex items-center mb-30'>
         <h1
           className={cn(
             'text-6xl items-center justify-center text-neutral-300',
@@ -20,6 +20,7 @@ const ContactPage = () => {
           )}
         >
         </h1>
+        <ContactForm/>
       </div>
     </div>
   );

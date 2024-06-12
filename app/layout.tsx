@@ -24,7 +24,10 @@ export default function RootLayout({
   return (
     <>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`relative min-h-screen flex flex-col text-white" ${inter.className}`}>
+          <video autoPlay loop muted playsInline className="fixed inset-0 w-full h-full object-cover z-[-1]">
+            <source src="/videos/1531418-hd_1920_1080_25fps.mp4" type="video/mp4" />
+          </video>
           {children}
         </body>
       </html>

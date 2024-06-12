@@ -18,6 +18,7 @@ const App = () => {
                 <AboutMePage/>
                 <WorksPage/>
                 <ContactPage/>
+                <ScrollDown />
             </div>
         </>
     );

@@ -28,7 +28,7 @@ const textFont = Poppins ({
 export default function Home() {
   return (
     <>
-      <div id='home' className='h-screen flex justify-center items-center bg-gray-800 text-white'>
+      <div id='home' className='h-screen flex justify-center items-center relative'>
         {/* className="fixed bottom=0 flex justify-center items-center w-full h-full bg-gray-800" */}
         <div className='flex items-center space-x-4 mb-44'>
           <Waves color='rgb(212,212,212)' size='3.75rem'/>
@@ -39,9 +39,9 @@ export default function Home() {
             Portfolio
           </h1>
         </div>
-        <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2">
+        {/* <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2">
           <ScrollDown targetId='aboutme'/>          
-        </div>
+        </div>  6/9削除 */}
       </div>
     </>
 

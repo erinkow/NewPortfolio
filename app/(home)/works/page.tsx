@@ -10,7 +10,7 @@ const WorksPage = () => {
   return (
     <div
       id='works'
-      className='bg-red-400 h-screen flex justify-center items-center text-white'
+      className='h-screen flex justify-center items-center text-white'
     >
       <div className='flex items-center space-x-4 mb-44'>
         <h1
