@@ -1,0 +1,1 @@
+export const API_BASE_URL = process.env.JSON_SERVER_URL + '/works';

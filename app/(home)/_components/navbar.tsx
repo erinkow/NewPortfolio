@@ -78,7 +78,7 @@ export const Navbar = ({
 
     return(
         <div className={`fixed w-full h-navbar px-4 py-auto border-b-4 shadow-sm bg-neutral-50 opacity-80 items-center z-10 ${className}`}>
-            <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between pt-4">
+            <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between pt-5">
                 <Link href='/#home'>
                     <div className="hover:opacity-75 transition items-center gap-x-2 hidden md:flex">
                         <Waves/>

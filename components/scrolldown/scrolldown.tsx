@@ -96,7 +96,7 @@ export const ScrollDown = forwardRef<ScrollDownProps>((props, ref)  => //6/13for
 
   return (
     <>
-      <div data-scroll-down ref={internalRef} className='fixed bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer' onClick={handleScrollDown}> {/* 6/9追加 */}
+      <div data-scroll-down ref={internalRef} className='fixed bottom-[6rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer' onClick={handleScrollDown}> {/* 6/9追加 */}
         {/* <div className='flex flex-col items-center w-full  cursor-pointer' onClick={handleScrollDown}> */}
         {/* className='fixed bottom-0 flex flex-col items-center w-full mb-[6rem] cursor-pointer' */}
         <div className='relative w-6 h-6'>

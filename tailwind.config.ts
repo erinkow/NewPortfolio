@@ -30,8 +30,8 @@ const config = {
         'calc-screen': 'calc(100vh - 4rem - 4rem)', // NavbarとFooterの高さを除いた高さ
       },
       spacing: {
-        'navbar': '4rem', // Navbarの高さ
-        'footer': '4rem', // Footerの高さ
+        'navbar': '5rem', // Navbarの高さ
+        'footer': '5rem', // Footerの高さ
       },
       colors: {
         border: "hsl(var(--border))",

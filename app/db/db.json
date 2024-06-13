@@ -1,0 +1,23 @@
+{
+    "works": [
+        {
+            "img": "/portfolio.png",
+            "title": "My Portfolio",
+            "description": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "technology": "TypeScript, React, Next.js"
+        },
+        {
+            "img": "/portfolio.png",
+            "title": "My Portfolio2",
+            "description": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "technology": "JavaScript, React, Next.js, prisma, postgreSQL"
+        },
+        {
+            "img": "/portfolio.png",
+            "title": "My Portfolio3",
+            "description": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "technology": "TypeScript, React, Next.js, prisma, Supabase, Clerk, Zod"
+        }
+    ]
+}
+  

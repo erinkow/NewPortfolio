@@ -1,11 +1,21 @@
 import { cn } from '@/lib/utils';
 import localFont from 'next/font/local';
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger
-} from '@/components/ui/popover';
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogPortal,
+  DialogClose,
+  DialogOverlay,
+  DialogTitle,
+  DialogDescription
+} from '@/components/ui/dialog';
+import { API_BASE_URL } from '../../../constants/base_url';
+
 import Image from 'next/image';
+
+import { Work } from '../../../types/types'
 
 
 const headingFont = localFont({
@@ -14,12 +24,18 @@ const headingFont = localFont({
   style: "normal"
 });
 
-const WorksPage = () => {
-  const portfolioImages = [
-    '/portfolio.png',
-    '/portfolio.png',
-    '/portfolio.png',
-  ];
+async function fetchWorks() {
+  const response = await fetch(API_BASE_URL, {
+    next: {revalidate: 10}
+  });
+  if(!response.ok) {
+    throw new Error('Failed to fetch works');
+  }
+  return response.json();
+}
+
+const WorksPage = async() => {
+  const works = await fetchWorks();
 
   return (
     <div
@@ -37,31 +53,39 @@ const WorksPage = () => {
         </h1>
       </div>
       <div className='grid grid-cols-2 gap-4'>
-        {portfolioImages.map((src, index) => (
+        {works.map((work: Work, index: number) => (
           <div key={index} className='flex justify-center'>
-            <Popover>
-              <PopoverTrigger asChild>
+            <Dialog>
+              <DialogTrigger asChild>
                 <Image 
-                  src='/portfolio.png' 
+                  src={work.img || ''} 
                   alt='portfolio image ${index + 1}'
                   width={400}
                   height={200}
-                  className='cursor-pointer hover:bg-neutral-50/10 bg-muted'
-                  
+                  className='cursor-pointer hover:bg-neutral-50/10'
                 />
-              </PopoverTrigger>
-              <PopoverContent 
-                className='px-1 pt-10 pb-10' 
-                side='bottom' 
-                // align={align}
-                >
-                <div >
-                  <div>
-                    <h4 className='font-medium leading-none'>My portfolio</h4>
-                  </div>
-                </div>
-              </PopoverContent>
-            </Popover>
+              </DialogTrigger>
+              <DialogContent 
+                className='px-1 pt-10 pb-10 bg-neutral-200' 
+              >
+                <DialogHeader>
+                  <DialogTitle>
+                    {work.title}
+                  </DialogTitle>
+                  <DialogDescription>
+                    <Image 
+                      src={work.img || ''}
+                      alt='portfolio image ${index + 1}'
+                      width={400}
+                      height={300}
+                      className='border-2 border-neutral-300 shadow-lg'
+                    />
+                    {work.description} <br />
+                    Used technology: {work.technology}
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </div>
 
         ))}
