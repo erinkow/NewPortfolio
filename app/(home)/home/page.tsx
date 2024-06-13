@@ -31,7 +31,7 @@ export default function Home() {
       <div id='home' className='h-screen flex justify-center items-center relative'>
         {/* className="fixed bottom=0 flex justify-center items-center w-full h-full bg-gray-800" */}
         <div className='flex items-center space-x-4 mb-44'>
-          <Waves color='rgb(212,212,212)' size='3.75rem'/>
+          <Waves className='text-neutral-300' size='3.75rem'/>
           <h1 className={cn(
             'text-6xl items-center justify-center text-neutral-300',
             headingFont.className

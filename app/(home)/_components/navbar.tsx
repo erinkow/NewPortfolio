@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Waves } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 interface NavbarProps {
     className?: string;
@@ -14,6 +14,7 @@ export const Navbar = ({
     className, 
 }: NavbarProps) => {
     const router = useRouter();
+    const scrollDownRef = useRef<{resetCurrentSection: () => void, scrollElement: HTMLDivElement | null}>(null); //6/13追加
 
     // const handleScrollDown = (targetId: string) => {
     //     const element = document.getElementById(targetId);
@@ -66,6 +67,11 @@ export const Navbar = ({
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
         e.preventDefault();
+        if(targetId === 'home') { //6/13追加
+            if (scrollDownRef.current) {
+                scrollDownRef.current.resetCurrentSection();
+            }
+        }
         window.history.pushState(null, '', `/#${targetId}`);
         handleScroll(targetId);
     };
@@ -73,7 +79,7 @@ export const Navbar = ({
     return(
         <div className={`fixed w-full h-navbar px-4 py-auto border-b-4 shadow-sm bg-neutral-50 opacity-80 items-center z-10 ${className}`}>
             <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between pt-4">
-                <Link href='/'>
+                <Link href='/#home'>
                     <div className="hover:opacity-75 transition items-center gap-x-2 hidden md:flex">
                         <Waves/>
                         <p
@@ -110,7 +116,7 @@ export const Navbar = ({
                             contact
                         </a>
                     </Button>
-
+                    
                 </div>
             </div>
         </div>
