@@ -4,18 +4,12 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState, forwardRef, useImperativeHandle, useRef } from 'react';
 
 interface ScrollDownProps {
-    // // targetPath: string;
-    // targetId: string;
-    // children?: React.ReactNode;
     resetCurrentSection: () => void;
 }
 
 const scrollSections = ['home', 'aboutme', 'works', 'contact'];
 
 export const ScrollDown = forwardRef<ScrollDownProps>((props, ref)  => //6/13forwardRef追加
-//   {
-//     targetId,
-// }: ScrollDownProps
 {
     const router = useRouter(); 
     const pathname = usePathname();
@@ -28,23 +22,6 @@ export const ScrollDown = forwardRef<ScrollDownProps>((props, ref)  => //6/13for
       resetCurrentSection: () => setCurrentSection('home'),
       // scrollElement: internalRef.current
     }));
-
-    // const handleScroll = (hash: string) => {
-    //   const currentIndex = scrollSections.indexOf(currentSection); //6/9追加
-    //   const nextIndex = (currentIndex + 1) % scrollSections.length; //6/9追加
-    //   const nextSection = scrollSections[nextIndex]; //6/9追加
-
-    //   // const element = document.getElementById(hash); //6/12復活
-    //   const element = document.getElementById(nextSection);
-    //   if (element) {
-    //         element.scrollIntoView({behavior: 'smooth'});
-    //         router.push(`#${nextSection}`);
-    //         setCurrentSection(nextSection);
-    //         console.log(`successfully scrolled to ${nextSection}`)
-    //   } else {
-    //     router.push(`/#${hash}`);
-    //   }
-    // };
 
     const handleScroll = (hash: string) => {
       const element = document.getElementById(hash);
@@ -59,17 +36,6 @@ export const ScrollDown = forwardRef<ScrollDownProps>((props, ref)  => //6/13for
           console.log(`Element with id ${hash} not found`);
       }
     };
-
-    // useEffect(() => { 
-    //   const hash = window.location.hash.replace('#', '');
-    //   if(hash) {
-    //     const element = document.getElementById(hash);
-    //     if(element) {
-    //       element.scrollIntoView({behavior: 'smooth'});
-    //       setCurrentSection(hash);
-    //     }
-    //   }
-    // }, [searchParams])
 
     useEffect(() => {
         const handleHashChange = () => {
@@ -112,3 +78,5 @@ export const ScrollDown = forwardRef<ScrollDownProps>((props, ref)  => //6/13for
     </>
   );
 });
+
+ScrollDown.displayName = "ScrollDown";
