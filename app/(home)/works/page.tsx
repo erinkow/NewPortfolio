@@ -1,8 +1,5 @@
 import { cn } from '@/lib/utils';
 import localFont from 'next/font/local';
-
-import { API_BASE_URL } from '../../../constants/base_url';
-
 import WorksPopover from '@/components/work-popover';
 
 const headingFont = localFont({
@@ -11,18 +8,7 @@ const headingFont = localFont({
   style: "normal"
 });
 
-async function fetchWorks() {
-  const response = await fetch(API_BASE_URL, {
-    next: {revalidate: 10}
-  });
-  if(!response.ok) {
-    throw new Error('Failed to fetch works');
-  }
-  return response.json();
-}
-
 const WorksPage = async () => {
-  const works = await fetchWorks();
 
   return (
     <div
@@ -39,7 +25,7 @@ const WorksPage = async () => {
           Works
         </h1>
       </div>
-      <WorksPopover works={works}/>
+      <WorksPopover/>
     </div>
   );
 };

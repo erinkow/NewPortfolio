@@ -9,15 +9,18 @@ import {
   DialogDescription
 } from '@/components/ui/dialog';
 import Image from 'next/image';
-import { Work } from '@/types/types';
 import Link from 'next/link';
 import { ChevronsRight } from 'lucide-react';
+import { Work } from '@/types/types';
+import { useEffect, useState } from 'react';
+import data from '@/app/db/db';
 
-interface WorksListProps {
-  works: Work[];
-}
-
-const WorksPopover: React.FC<WorksListProps> = ({ works }) => {
+const WorksPopover = () => {
+    const [works, setWorks] = useState<Work[]>([]);
+    
+    useEffect(() => {
+      setWorks(data.works);
+    }, [])
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 px-3'>
         {works.map((work: Work, index: number) => (
