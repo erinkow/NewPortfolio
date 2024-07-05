@@ -16,10 +16,18 @@ const App = () => {
             </div> */}
             
             <div>
-                <Home/>
-                <AboutMePage/>
-                <WorksPage/>
-                <ContactPage/>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Home/>
+                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <AboutMePage/>
+                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <WorksPage/>
+                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <ContactPage/>
+                </Suspense>
                 <Suspense fallback={<div>Loading...</div>}>
                     <ScrollDown />
                 </Suspense>

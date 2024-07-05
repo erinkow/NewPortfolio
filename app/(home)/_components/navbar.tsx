@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Waves } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 interface NavbarProps {
@@ -15,20 +15,6 @@ export const Navbar = ({
 }: NavbarProps) => {
     const router = useRouter();
     const scrollDownRef = useRef<{resetCurrentSection: () => void, scrollElement: HTMLDivElement | null}>(null); //6/13追加
-
-    // const handleScrollDown = (targetId: string) => {
-    //     const element = document.getElementById(targetId);
-    //     if (element) {
-    //         // element.scrollIntoView({behavior: 'smooth'});
-    //         const top = element.getBoundingClientRect().top + window.scrollY;
-    //         window.scrollTo({ top, behavior: 'smooth' });
-    //     } else {
-    //         // window.location.href = '/#' + targetId;
-    //         router.push('/#' + targetId)
-    //     }
-    // };
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
 
     const handleScroll = (hash: string) => {
         const element = document.getElementById(hash);
