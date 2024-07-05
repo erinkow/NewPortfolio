@@ -15,9 +15,7 @@ const HomeLayout = ({
                 <Navbar className='h-navbar'/>
                 <div className="flex-grow "> {/* スクロールに問題がでたのでoverflow-y-autoを、背景に問題がでたのでbg-slate-100を一旦削除*/}      
                     <main className="h-calc-screen pt-navbar pb-footer">
-                        <Suspense fallback={<div>Loading...</div>}>
-                            {children}
-                        </Suspense>
+                        {children}    
                     </main>
                 </div>
                 <Footer className='h-footer'/>

@@ -20,7 +20,9 @@ const App = () => {
                 <AboutMePage/>
                 <WorksPage/>
                 <ContactPage/>
-                <ScrollDown />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <ScrollDown />
+                </Suspense>
             </div>
         </>
     );
