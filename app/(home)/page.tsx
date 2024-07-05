@@ -4,6 +4,7 @@ import ContactPage from "./contact/page";
 import { ScrollDown } from "@/components/scrolldown/scrolldown";
 import AboutMePage from "./aboutme/page";
 import WorksPage from "./works/page";
+import { Suspense } from "react";
 
 const App = () => {
     return(
@@ -18,7 +19,9 @@ const App = () => {
                 <AboutMePage/>
                 <WorksPage/>
                 <ContactPage/>
-                <ScrollDown />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <ScrollDown />
+                </Suspense>
             </div>
         </>
     );

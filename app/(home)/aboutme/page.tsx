@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import localFont from 'next/font/local';
-import { ScrollDown } from "@/components/scrolldown/scrolldown";
 import Image from "next/image";
 
 const headingFont = localFont({
