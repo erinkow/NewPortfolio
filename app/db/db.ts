@@ -6,7 +6,7 @@ const data = {
             description: '自己紹介、他のPortfolio紹介、コンタクトページを作成。ナビゲーションバーに各ページへ遷移するボタンを設置し、さらに縦スクロールボタンで次のページにスクロールする機能を追加。コンタクトページはNEWTというAPIを使用して作成しています',
             technology: 'TypeScript, React, Next.js, TailwindCSS, Shadcn-ui',
             github_repository: 'https://github.com/erinkow/NewPortfolio',
-            url: '',
+            url: '/',
         },
         {
             img: '/first_board_todee.png',
