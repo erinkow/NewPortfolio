@@ -32,8 +32,7 @@ export default function Home() {
         <div className='flex items-center space-x-4 mb-44'>
           <Waves className='text-neutral-300' size='3.75rem'/>
           <h1 className={cn(
-            'text-6xl items-center justify-center text-neutral-300',
-            headingFont.className
+            'text-6xl items-center justify-center text-neutral-300'
           )}>
             Portfolio
           </h1>
