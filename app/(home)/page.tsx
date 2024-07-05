@@ -14,15 +14,15 @@ const App = () => {
                 <ScrollDown targetId="works"/>
                 <ScrollDown targetId="contact"/>
             </div> */}
-            <div>
-                <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
+                <div>
                     <Home/>
                     <AboutMePage/>
                     <WorksPage/>
                     <ContactPage/>
                     <ScrollDown />
-                </Suspense>
-            </div>
+                </div>
+            </Suspense>
         </>
     );
 }
