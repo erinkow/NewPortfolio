@@ -92,25 +92,25 @@ export const Navbar = ({
                     </div>
                 </Link>
                 <div className="flex flex-wrap justify-center space-x-4 md:block md:w-auto items-center justiy-between w-full">
-                    <Button size='sm' variant='outline' className="text-xs sm:text-sm"> 
+                    <Button size='sm' variant='outline' className="text-[10px] sm:text-sm"> 
                         <a href="/#home" onClick={e => handleClick(e, 'home')}>
                         {/* onClick={() => handleScrollDown('home')} */}
                             Home
                         </a>
                     </Button>
-                    <Button size='sm' variant='outline' className="text-xs sm:text-sm">
+                    <Button size='sm' variant='outline' className="text-[10px] sm:text-sm">
                         {/* onClick={() => handleScrollDown('aboutme')} */}
                         <a href="/#aboutme" onClick={e => handleClick(e, 'aboutme')}>
                             About me
                         </a>
                     </Button>
-                    <Button size='sm' variant='outline' className="text-xs sm:text-sm">
+                    <Button size='sm' variant='outline' className="text-[10px] sm:text-sm">
                         {/* onClick={() => handleScrollDown('works')} */}
                         <a href="/#works" onClick={e => handleClick(e, 'works')}>
                             Works
                         </a>
                     </Button>
-                    <Button size='sm' variant='outline' className="text-xs sm:text-sm">
+                    <Button size='sm' variant='outline' className="text-[10px] sm:text-sm">
                         {/* onClick={() => handleScrollDown('contact')} */}
                         <a href="/#contact" onClick={e => handleClick(e, 'contact')}>
                             contact

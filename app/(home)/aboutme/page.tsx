@@ -13,24 +13,24 @@ const AboutMePage = () => {
             {/*  bg-red-300 */}
             <div className='flex flex-col items-center mb-24'>
                 <h1 className={cn(
-                    'text-6xl items-center justify-center text-neutral-300 mt-10',
+                    'text-2xl md:text-6xl md:mb-5 items-center justify-center text-neutral-300 mt-10',
                     headingFont.className
                 )}>
                     About Me
                 </h1>
-                <div className="flex flex-row items-center mt-10">
-                    <div className="w-100% h-70%">
+                <div className="flex flex-col md:flex-row items-center mt-5">
+                    <div className="flex justify-center mb-4 md:mb-0">
                         <Image
                             src='/profile.jpeg'
                             alt="Profile Picture"
-                            width={300} // 適切な幅を設定
-                            height={300} // 適切な高さを設定
-                            className="rounded-full"
+                            width={300}
+                            height={300}
+                            className="rounded-full max-w-[150px] max-h-[190px] md:max-w-[300px] md:max-h-[400px] md:ml-5"
                         />
 
                     </div>
-                    <div className="ml-[9.5rem] max-w-[35rem] items-start">
-                        <p className="text-lg text-neutral-300 breake-words">
+                    <div className="mx-[3rem] max-w-[35rem] items-start lg:mx-[8rem]">
+                        <p className="text-[12px] text-neutral-300 breake-words md:text-sm">
                             はじめまして。渡辺 江里子(わたなべ えりこ)と申します。<br />
                             <br />
                             ソフトウェアエンジニアとしてはまだ駆け出しで、独学でJavaScriptやTypeScript, React, Next.JSといったフロントエンドの勉強中心に進めており、もうじき1年が経とうとしています。<br /> 

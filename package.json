@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:json-server": "npx json-server --watch ./app/db/db.json --port 4030",
-    "dev:next": "next dev -p 3000",
+    "dev:next": "next dev -p 3002",
     "build": "next build",
     "start": "next start"
   },

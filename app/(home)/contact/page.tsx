@@ -15,7 +15,7 @@ const ContactPage = () => {
       <div className='flex items-center mb-30'>
         <h1
           className={cn(
-            'text-6xl items-center justify-center text-neutral-300',
+            'text-2xl md:text-6xl items-center justify-center text-neutral-300',
             headingFont.className
           )}
         >

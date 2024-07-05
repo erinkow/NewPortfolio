@@ -3,7 +3,6 @@
 import { Poppins } from 'next/font/google';
 import localFont from 'next/font/local';
 import { cn } from '@/lib/utils';
-import { ScrollDown } from '@/components/scrolldown/scrolldown';
 import { Waves } from 'lucide-react';
 
 const headingFont = localFont({
