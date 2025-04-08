@@ -14,7 +14,7 @@ const data = {
             description: 'Trelloクローン。Clerkを使ったユーザサインイン、組織ログイン機能、Spriteを使った有料プラン「Pro」、hello-pangea/dndを使ったドラッグアンドドロップ機能をつけています。チュートリアル動画を参考にした二作目で少しだけアレンジを加えました。',
             technology: 'TypeScript, React, Next.js, prisma, Supabase, Clerk, Zod, hello-pangea/dnd, TailwindCSS, Shadcn-ui',
             github_repository: 'https://github.com/erinkow/todee',
-            url: 'https://todee-wmz5.vercel.app/',
+            url: 'https://todee-two.vercel.app/',
         },
         {
             img: '/todee-lite.png',
